@@ -1,11 +1,11 @@
 const VF = Vex.Flow;
 
 const notes = {
-    'A': ['a/3', 'a/4', 'a/5'],
+    'A': ['a/2', 'a/3', 'a/4', 'a/5'],
     'B': ['b/2', 'b/3', 'b/4', 'b/5'],
-    'C': ['c/3', 'c/4', 'c/5', 'c/6'],
-    'D': ['d/3', 'd/4', 'd/5', 'd/6'],
-    'E': ['e/3', 'e/4', 'e/5', 'e/6'],
+    'C': ['c/2', 'c/3', 'c/4', 'c/5', 'c/6'],
+    'D': ['d/2', 'd/3', 'd/4', 'd/5', 'd/6'],
+    'E': ['e/2', 'e/3', 'e/4', 'e/5', 'e/6'],
     'F': ['f/2', 'f/3', 'f/4', 'f/5', 'f/6'],
     'G': ['g/2', 'g/3', 'g/4', 'g/5', 'g/6'],
 };
@@ -18,13 +18,13 @@ const div = document.getElementById("vf");
 const renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
 
 // Configure the rendering context.
-renderer.resize(500, 300);
+renderer.resize(500, 600);
 const context = renderer.getContext();
 context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
 
 // Create a stave
-let trebleStave = new VF.Stave(10, 0, 400);
-let bassStave = new VF.Stave(10, 100, 400);
+let trebleStave = new VF.Stave(20, 20, 120);
+let bassStave = new VF.Stave(20, 150, 120); // Increase the position here
 
 // Add a clef and time signature.
 trebleStave.addClef("treble");
