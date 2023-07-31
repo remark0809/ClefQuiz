@@ -80,4 +80,27 @@ window.addEventListener('keydown', function(event) {
     }
 });
 
+function checkInput(input) {
+    if (input.toUpperCase() === currentNote) {
+        newNote();
+    } else {
+        flashWrongNote();
+    }
+}
+
+window.addEventListener('keydown', function(event) {
+    let validKeys = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+    if (!validKeys.includes(event.key.toLowerCase())) {
+        return;
+    }
+    checkInput(event.key);
+});
+
+let buttons = document.getElementById("buttons").getElementsByTagName("button");
+for(let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function() {
+        checkInput(this.innerText);
+    });
+}
+
 newNote();
